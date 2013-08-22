@@ -15,12 +15,12 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "abbyy"
-  gem.homepage = "http://github.com/madwork/abbyy"
+  gem.homepage = "http://github.com/philsmy/abbyy"
   gem.license = "MIT"
   gem.summary = "A Ruby wrapper for the Abbyy Cloud OCR SDK API"
   gem.description = "A Ruby wrapper for the Abbyy Cloud OCR SDK API."
-  gem.email = "vincent.durand@madwork.org"
-  gem.authors = ["Vincent Durand"]
+  gem.email = "phil@philsmy.com"
+  gem.authors = ["Vincent Durand", "Phil Smy"]
   # dependencies defined in Gemfile
   gem.files = Dir.glob('lib/**/*.rb')
 end

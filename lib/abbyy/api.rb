@@ -1,6 +1,6 @@
 module Abbyy
   module API
-    @@api_methods = %w(process_image process_business_card get_task_status submit_image process_document list_tasks).map(&:to_sym)
+    @@api_methods = %w(process_image process_business_card get_task_status submit_image process_document list_tasks process_fields).map(&:to_sym)
     
     def execute(sym, *args, &block)
       self.resource = send("run_#{sym}", *args, &block)
@@ -45,6 +45,11 @@ module Abbyy
     # http://ocrsdk.com/documentation/apireference/processDocument/
     def run_process_document(task_id = @task[:id])
       RestClient.get("#{@url}/processDocument?taskId=#{task_id}")
+    end
+    
+    # http://ocrsdk.com/documentation/apireference/processFields/
+    def run_process_fields(settings_file, taskId = @task[:id], options = {})
+      RestClient.post("#{@url}/processFields?taskId=#{taskId}", options.merge(:upload => { :file => File.new(settings_file, 'r') }))
     end
     
   end
